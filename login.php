@@ -29,7 +29,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (password_verify($password, $hashed_password)) {
         $_SESSION['loggedin'] = true;
         $_SESSION['username'] = $email;
-        header("Location: index.html");
+        header("Location: index.php");
         exit();
     } else {
         echo "Invalid email or password.";
