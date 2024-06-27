@@ -1,13 +1,9 @@
-<?php
-session_start();
-?>
-
 <!DOCTYPE html>
 <html lang="de">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Willkommen</title>
+    <title>Hilfe</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
@@ -52,12 +48,25 @@ session_start();
         </ul>
     </div>
 </nav>
-<div class="container d-flex flex-column align-items-center justify-content-center text-center mt-5" style="min-height: 75vh;">
-    <h1>Willkommen auf unserer Webseite</h1>
-    <p class="lead">Wir freuen uns, Sie hier begrüßen zu dürfen. Verwenden Sie das Navigationsmenü, um durch die verschiedenen Abschnitte unserer Website zu navigieren.</p>
-    <p><a href="create_task.php" class="btn btn-primary">Neue Aufgabe erstellen</a></p>
-    <p><a href="todolist.php" class="btn btn-secondary">Aufgaben anzeigen</a></p>
-    <p><a href="calendar.php" class="btn btn-info">Kalender anzeigen</a></p>
+<div class="container">
+    <h1>Hilfe</h1>
+    <h2>Home</h2>
+    <p>Die Startseite Ihrer To-Do-Liste. Hier sehen Sie eine Übersicht Ihrer Aufgaben.</p>
+
+    <h2>Create New Task</h2>
+    <p>Hier können Sie eine neue Aufgabe erstellen. Geben Sie den Aufgabentyp, den Namen und das Fälligkeitsdatum ein.</p>
+
+    <h2>Show Tasks</h2>
+    <p>Diese Seite zeigt alle Ihre Aufgaben. Sie können Aufgaben als erledigt markieren oder löschen und zusätzlich Aufgaben nach verschiedenen Kritereien filtern.</p>
+
+    <h2>Kalender</h2>
+    <p>Diese Seite zeigt Ihre Aufgaben in einem Kalenderformat. Erledigte Aufgaben werden in grün und nicht erledigte in rot angezeigt.</p>
+
+    <h2>Impressum</h2>
+    <p>Hier finden Sie Informationen über die Entwickler dieser Website.</p>
+
+    <h2>Hilfe</h2>
+    <p>Diese Seite bietet eine Übersicht über die Funktionen der Website und wie man sie verwendet.</p>
 </div>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>

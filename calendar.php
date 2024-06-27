@@ -5,6 +5,36 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
     echo "<script type='text/javascript'>alert('Error: User not logged in'); window.location.href='login.html';</script>";
     exit;
 }
+
+$servername = "127.0.0.1";  // Localhost IP address
+$username = "root";  // MySQL username
+$password = "";  // MySQL password (empty in this case)
+$dbname = "todolistesnnl";  // Your actual database name
+
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+// Fetch tasks from the database
+$sql = "SELECT id, task_type, task_name, task_date, completed FROM tasks";
+$result = $conn->query($sql);
+
+$tasks = [];
+if ($result->num_rows > 0) {
+    while($row = $result->fetch_assoc()) {
+        $tasks[] = [
+            'title' => $row['task_name'],
+            'start' => $row['task_date'],
+            'color' => $row['completed'] ? 'green' : 'red',
+        ];
+    }
+}
+
+$conn->close();
 ?>
 
 <!DOCTYPE html>
@@ -12,9 +42,17 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Neue Aufgabe erstellen</title>
+    <title>Kalender</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link href='https://cdn.jsdelivr.net/npm/fullcalendar@5.10.1/main.min.css' rel='stylesheet' />
+    <script src='https://cdn.jsdelivr.net/npm/fullcalendar@5.10.1/main.min.js'></script>
     <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+        #calendar {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+    </style>
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -48,27 +86,23 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
         </ul>
     </div>
 </nav>
-    <div class="container">
-        <h1>Neue Aufgabe erstellen</h1>
-        <form action="save_task.php" method="post">
-            <div class="form-group">
-                <label for="task_type">Aufgabentyp:</label>
-                <select id="task_type" name="task_type" class="form-control" required>
-                    <option value="business">Geschäftlich</option>
-                    <option value="private">Privat</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label for="task_name">Aufgabenname:</label>
-                <input type="text" id="task_name" name="task_name" class="form-control" required>
-            </div>
-            <div class="form-group">
-                <label for="task_date">Datum:</label>
-                <input type="date" id="task_date" name="task_date" class="form-control" required>
-            </div>
-            <input type="submit" class="btn btn-primary" value="Aufgabe erstellen">
-        </form>
-    </div>
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<div class="container">
+    <h1>Kalender</h1>
+    <div id='calendar'></div>
+</div>
+<script src='https://cdn.jsdelivr.net/npm/fullcalendar@5.10.1/main.min.js'></script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    var calendarEl = document.getElementById('calendar');
+    var calendar = new FullCalendar.Calendar(calendarEl, {
+        initialView: 'dayGridMonth',
+        events: <?php echo json_encode($tasks); ?>
+    });
+    calendar.render();
+});
+</script>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

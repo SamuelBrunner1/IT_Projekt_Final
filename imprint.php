@@ -1,13 +1,9 @@
-<?php
-session_start();
-?>
-
 <!DOCTYPE html>
 <html lang="de">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Willkommen</title>
+    <title>Impressum</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
@@ -52,12 +48,21 @@ session_start();
         </ul>
     </div>
 </nav>
-<div class="container d-flex flex-column align-items-center justify-content-center text-center mt-5" style="min-height: 75vh;">
-    <h1>Willkommen auf unserer Webseite</h1>
-    <p class="lead">Wir freuen uns, Sie hier begrüßen zu dürfen. Verwenden Sie das Navigationsmenü, um durch die verschiedenen Abschnitte unserer Website zu navigieren.</p>
-    <p><a href="create_task.php" class="btn btn-primary">Neue Aufgabe erstellen</a></p>
-    <p><a href="todolist.php" class="btn btn-secondary">Aufgaben anzeigen</a></p>
-    <p><a href="calendar.php" class="btn btn-info">Kalender anzeigen</a></p>
+<div class="container">
+    <h1>Impressum</h1>
+    <p>Diese Website wurde von folgenden Entwicklern erstellt:</p>
+    <ul>
+        <li>Entwickler 1: Samuel Brunner</li>
+        <li>Entwickler 2: Nikita Pussliuc</li>
+        <li>Entwickler 3: Leon Friedl</li>
+        <li>Entwickler 4: Nikolaus Kment</li>
+        <li>Entwickler 5: Tobias Wydra</li>
+    </ul>
+
+    <h2>Unternehmensinformationen</h2>
+    <p>Name des Unternehmens oder Verantwortlichen: SNNLT GmbH</p>
+    <p>Adresse: Höchstädtplatz, 1200 Wien</p>
+    <p>Kontakt: <a href="mailto:nikolaus@gmail.com">nikolaus@gmail.com</a>, Telefon: +43 0660 123 456</p>
 </div>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
