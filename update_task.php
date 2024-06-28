@@ -20,25 +20,23 @@ if ($conn->connect_error) {
 }
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $id = $_POST['id'];
+    $task_id = $_POST['task_id'];
     $completed = $_POST['completed'];
 
     // Prepare and bind
-    $stmt = $conn->prepare("UPDATE tasks SET completed = ? WHERE id = ?");
-    $stmt->bind_param("ii", $completed, $id);
+    $stmt = $conn->prepare("UPDATE tasks SET completed = ? WHERE task_id = ?");
+    $stmt->bind_param("ii", $completed, $task_id);
 
     // Execute the statement
     if ($stmt->execute()) {
-        echo "Aufgabe erfolgreich aktualisiert!";
+        header("Location: todolist.php");
+        exit();
     } else {
-        echo "Fehler: " . $stmt->error;
+        echo "Error: " . $stmt->error;
     }
 
     // Close the statement and connection
     $stmt->close();
     $conn->close();
-
-    header("Location: todolist.php");
-    exit();
 }
 ?>

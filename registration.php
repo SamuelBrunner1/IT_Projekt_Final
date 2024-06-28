@@ -6,6 +6,25 @@
     <title>Registrieren</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/style.css">
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const message = "<?php echo $message; ?>";
+            if (message) {
+                alert(message);
+            }
+        });
+
+        function validateForm() {
+            const password = document.getElementById("password").value;
+            const passwordConfirm = document.getElementById("password_confirm").value;
+
+            if (password !== passwordConfirm) {
+                alert("Passwörter stimmen nicht überein.");
+                return false;
+            }
+            return true;
+        }
+    </script>
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -38,7 +57,7 @@
     </nav>
     <div class="container">
         <h1>Registrierungsformular</h1>
-        <form action="register.php" method="post">
+        <form action="register.php" method="post" onsubmit="return validateForm()">
             <div class="form-group">
                 <label for="email">E-Mail-Adresse:</label>
                 <input type="email" id="email" name="email" class="form-control" required>

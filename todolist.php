@@ -24,7 +24,7 @@ $task_type_filter = $_GET['task_type'] ?? '';
 $date_from = $_GET['date_from'] ?? '';
 $date_to = $_GET['date_to'] ?? '';
 
-$sql = "SELECT id, task_type, task_name, task_date, completed FROM tasks WHERE 1=1";
+$sql = "SELECT task_id, task_type, task_name, task_date, completed FROM tasks WHERE user_id = " . $_SESSION['user_id'];
 
 if ($task_type_filter) {
     $sql .= " AND task_type = '" . $conn->real_escape_string($task_type_filter) . "'";
@@ -53,27 +53,35 @@ $conn->close();
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/style.css">
     <link href='https://cdn.jsdelivr.net/npm/fullcalendar@5.10.1/main.min.css' rel='stylesheet' />
-<script src='https://cdn.jsdelivr.net/npm/fullcalendar@5.10.1/main.min.js'></script>
-
+    <script src='https://cdn.jsdelivr.net/npm/fullcalendar@5.10.1/main.min.js'></script>
 </head>
 <body>
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-light">
     <a class="navbar-brand" href="#">Meine Webseite</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="index.php">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="create_task.php">Create New Task</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="todolist.php">Show Tasks</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="calendar.php">Kalender</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="imprint.php">Impressum</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="help.php">Hilfe</a>
+            </li>
             <?php if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true): ?>
-                <li class="nav-item">
-                    <a class="nav-link" href="create_task.php">Create New Task</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="todolist.php">Show Tasks</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="calendar.php">Kalender</a>
-                </li>
                 <li class="nav-item">
                     <a class="nav-link" href="logout.php">Logout</a>
                 </li>
@@ -127,12 +135,12 @@ $conn->close();
                         <td><?php echo $row['completed'] ? 'Erledigt' : 'Offen'; ?></td>
                         <td>
                             <form action="update_task.php" method="post" style="display:inline;">
-                                <input type="hidden" name="id" value="<?php echo $row['id']; ?>">
+                                <input type="hidden" name="task_id" value="<?php echo $row['task_id']; ?>">
                                 <input type="hidden" name="completed" value="<?php echo $row['completed'] ? 0 : 1; ?>">
                                 <button type="submit" class="btn btn-sm btn-success"><?php echo $row['completed'] ? 'Mark as Open' : 'Mark as Completed'; ?></button>
                             </form>
                             <form action="delete_task.php" method="post" style="display:inline;">
-                                <input type="hidden" name="id" value="<?php echo $row['id']; ?>">
+                                <input type="hidden" name="task_id" value="<?php echo $row['task_id']; ?>">
                                 <button type="submit" class="btn btn-sm btn-danger">Löschen</button>
                             </form>
                         </td>

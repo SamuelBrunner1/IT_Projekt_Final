@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="de">
 <head>
@@ -57,7 +61,7 @@
     <p>Hier können Sie eine neue Aufgabe erstellen. Geben Sie den Aufgabentyp, den Namen und das Fälligkeitsdatum ein.</p>
 
     <h2>Show Tasks</h2>
-    <p>Diese Seite zeigt alle Ihre Aufgaben. Sie können Aufgaben als erledigt markieren oder löschen und zusätzlich Aufgaben nach verschiedenen Kritereien filtern.</p>
+    <p>Diese Seite zeigt alle Ihre Aufgaben. Sie können Aufgaben als erledigt markieren oder löschen.</p>
 
     <h2>Kalender</h2>
     <p>Diese Seite zeigt Ihre Aufgaben in einem Kalenderformat. Erledigte Aufgaben werden in grün und nicht erledigte in rot angezeigt.</p>

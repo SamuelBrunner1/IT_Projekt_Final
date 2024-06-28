@@ -20,24 +20,22 @@ if ($conn->connect_error) {
 }
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $id = $_POST['id'];
+    $task_id = $_POST['task_id'];
 
     // Prepare and bind
-    $stmt = $conn->prepare("DELETE FROM tasks WHERE id = ?");
-    $stmt->bind_param("i", $id);
+    $stmt = $conn->prepare("DELETE FROM tasks WHERE task_id = ?");
+    $stmt->bind_param("i", $task_id);
 
     // Execute the statement
     if ($stmt->execute()) {
-        echo "Aufgabe erfolgreich gelöscht!";
+        header("Location: todolist.php");
+        exit();
     } else {
-        echo "Fehler: " . $stmt->error;
+        echo "Error: " . $stmt->error;
     }
 
     // Close the statement and connection
     $stmt->close();
     $conn->close();
-
-    header("Location: todolist.php");
-    exit();
 }
 ?>

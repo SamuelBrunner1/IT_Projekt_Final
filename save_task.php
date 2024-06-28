@@ -23,14 +23,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $task_type = $_POST['task_type'];
     $task_name = $_POST['task_name'];
     $task_date = $_POST['task_date'];
+    $user_id = $_SESSION['user_id']; // Get the user ID from the session
 
     // Prepare and bind
-    $stmt = $conn->prepare("INSERT INTO tasks (task_type, task_name, task_date) VALUES (?, ?, ?)");
-    $stmt->bind_param("sss", $task_type, $task_name, $task_date);
+    $stmt = $conn->prepare("INSERT INTO tasks (task_type, task_name, task_date, user_id) VALUES (?, ?, ?, ?)");
+    $stmt->bind_param("sssi", $task_type, $task_name, $task_date, $user_id);
 
     // Execute the statement
     if ($stmt->execute()) {
-        echo "Aufgabe erfolgreich erstellt!";
+        header("Location: create_task.php?success=1");
+        exit();
     } else {
         echo "Fehler: " . $stmt->error;
     }
