@@ -23,10 +23,10 @@ session_start();
                 <a class="nav-link" href="index.php">Home</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="create_task.php">Create New Task</a>
+                <a class="nav-link" href="create_task.php">Aufgabe erstellen</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="todolist.php">Show Tasks</a>
+                <a class="nav-link" href="todolist.php">Aufgaben anzeigen</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="calendar.php">Kalender</a>

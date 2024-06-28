@@ -52,6 +52,12 @@ $conn->close();
             max-width: 900px;
             margin: 0 auto;
         }
+
+        .custom-heading {
+            font-size: 2.2rem; /* Slightly smaller size */
+            margin-top: 2rem; /* Margin above the heading */
+            text-align: center; /* Center the heading */
+        }
     </style>
 </head>
 <body>
@@ -66,10 +72,10 @@ $conn->close();
                 <a class="nav-link" href="index.php">Home</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="create_task.php">Create New Task</a>
+                <a class="nav-link" href="create_task.php">Aufgabe erstellen</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="todolist.php">Show Tasks</a>
+                <a class="nav-link" href="todolist.php">Aufgaben anzeigen</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="calendar.php">Kalender</a>
@@ -96,7 +102,7 @@ $conn->close();
     </div>
 </nav>
 <div class="container">
-    <h1>Kalender</h1>
+    <h1 class="custom-heading">Kalender</h1>
     <div id='calendar'></div>
 </div>
 <script>

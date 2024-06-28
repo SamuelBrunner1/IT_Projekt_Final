@@ -54,6 +54,14 @@ $conn->close();
     <link rel="stylesheet" href="assets/css/style.css">
     <link href='https://cdn.jsdelivr.net/npm/fullcalendar@5.10.1/main.min.css' rel='stylesheet' />
     <script src='https://cdn.jsdelivr.net/npm/fullcalendar@5.10.1/main.min.js'></script>
+    <style>
+        .custom-heading {
+            font-size: 2.2rem; /* Slightly smaller size */
+            margin-top: 2rem; /* Margin above the heading */
+            margin-bottom: 10rem; /* Margin beneath the heading */
+            text-align: center; /* Center the heading */
+        }
+    </style>
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-light">
@@ -67,10 +75,10 @@ $conn->close();
                 <a class="nav-link" href="index.php">Home</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="create_task.php">Create New Task</a>
+                <a class="nav-link" href="create_task.php">Aufgabe erstellen</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="todolist.php">Show Tasks</a>
+                <a class="nav-link" href="todolist.php">Aufgaben anzeigen</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="calendar.php">Kalender</a>
@@ -98,7 +106,7 @@ $conn->close();
 </nav>
 
 <div class="container">
-    <h1>To-Do Liste</h1>
+    <h1 class="custom-heading">To-Do Liste</h1>
     <form method="get" class="form-inline mb-3">
         <label for="task_type" class="mr-2">Aufgabentyp:</label>
         <select id="task_type" name="task_type" class="form-control mr-3">

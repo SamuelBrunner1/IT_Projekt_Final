@@ -10,6 +10,14 @@ session_start();
     <title>Hilfe</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+        .custom-heading {
+            font-size: 2.2rem; /* Slightly smaller size */
+            margin-top: 2rem; /* Margin above the heading */
+            margin-bottom: 5rem; /* Margin beneath the heading */
+            text-align: center; /* Center the heading */
+        }
+    </style>
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-light">
@@ -23,10 +31,10 @@ session_start();
                 <a class="nav-link" href="index.php">Home</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="create_task.php">Create New Task</a>
+                <a class="nav-link" href="create_task.php">Aufgabe erstellen</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="todolist.php">Show Tasks</a>
+                <a class="nav-link" href="todolist.php">Aufgaben anzeigen</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="calendar.php">Kalender</a>
@@ -53,14 +61,14 @@ session_start();
     </div>
 </nav>
 <div class="container">
-    <h1>Hilfe</h1>
+    <h1 class="custom-heading">Hilfe</h1>
     <h2>Home</h2>
     <p>Die Startseite Ihrer To-Do-Liste. Hier sehen Sie eine Übersicht Ihrer Aufgaben.</p>
 
-    <h2>Create New Task</h2>
+    <h2>Aufgabe erstellen</h2>
     <p>Hier können Sie eine neue Aufgabe erstellen. Geben Sie den Aufgabentyp, den Namen und das Fälligkeitsdatum ein.</p>
 
-    <h2>Show Tasks</h2>
+    <h2>Aufgaben anzeigen</h2>
     <p>Diese Seite zeigt alle Ihre Aufgaben. Sie können Aufgaben als erledigt markieren oder löschen.</p>
 
     <h2>Kalender</h2>

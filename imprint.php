@@ -10,6 +10,29 @@ session_start();
     <title>Impressum</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+        .center-content {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .center-content-inner {
+            max-width: 600px;
+            text-align: center;
+        }
+        .center-content-inner ul {
+            text-align: left; /* Align list items to the left */
+        }
+    </style>
+        <style>
+        .custom-heading {
+            font-size: 2.2rem; /* Slightly smaller size */
+            margin-top: 2rem; /* Margin above the heading */
+            margin-bottom: 2rem; /* Margin beneath the heading */
+            text-align: center; /* Center the heading */
+        }
+    </style>
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-light">
@@ -23,10 +46,10 @@ session_start();
                 <a class="nav-link" href="index.php">Home</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="create_task.php">Create New Task</a>
+                <a class="nav-link" href="create_task.php">Aufgabe erstellen</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="todolist.php">Show Tasks</a>
+                <a class="nav-link" href="todolist.php">Aufgaben anzeigen</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="calendar.php">Kalender</a>
@@ -52,21 +75,23 @@ session_start();
         </ul>
     </div>
 </nav>
-<div class="container">
-    <h1>Impressum</h1>
-    <p>Diese Website wurde von folgenden Entwicklern erstellt:</p>
-    <ul>
-        <li>Entwickler 1: Samuel Brunner</li>
-        <li>Entwickler 2: Nikita Pussliuc</li>
-        <li>Entwickler 3: Leon Friedl</li>
-        <li>Entwickler 4: Nikolaus Kment</li>
-        <li>Entwickler 5: Tobias Wydra</li>
-    </ul>
+<div class="container center-content">
+    <div class="center-content-inner">
+        <h1 class="custom-heading">Impressum</h1>
+        <p>Diese Website wurde von folgenden Entwicklern erstellt:</p>
+        <ul>
+            <li>Entwickler 1: Samuel Brunner</li>
+            <li>Entwickler 2: Nikita Pussliuc</li>
+            <li>Entwickler 3: Leon Friedl</li>
+            <li>Entwickler 4: Nikolaus Kment</li>
+            <li>Entwickler 5: Tobias Wydra</li>
+        </ul>
 
-    <h2>Unternehmensinformationen</h2>
-    <p>Name des Unternehmens oder Verantwortlichen: SNNLT GmbH</p>
-    <p>Adresse: Höchstädtplatz, 1200 Wien</p>
-    <p>Kontakt: <a href="mailto:nikolaus@gmail.com">nikolaus@gmail.com</a>, Telefon: +43 0660 123 456</p>
+        <h2>Unternehmensinformationen</h2>
+        <p>Name des Unternehmens oder Verantwortlichen: SNNLT GmbH</p>
+        <p>Adresse: Höchstädtplatz, 1200 Wien</p>
+        <p>Kontakt: <a href="mailto:nikolaus@gmail.com">nikolaus@gmail.com</a>, Telefon: +43 0660 123 456</p>
+    </div>
 </div>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>

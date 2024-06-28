@@ -15,6 +15,14 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
     <title>Neue Aufgabe erstellen</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+        .custom-heading {
+            font-size: 2.2rem; /* Slightly smaller size */
+            margin-top: 2rem; /* Margin above the heading */
+            margin-bottom: 10rem; /* Margin beneath the heading */
+            text-align: center; /* Center the heading */
+        }
+    </style>
     <script>
         document.addEventListener("DOMContentLoaded", function() {
             const urlParams = new URLSearchParams(window.location.search);
@@ -36,10 +44,10 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
                 <a class="nav-link" href="index.php">Home</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="create_task.php">Create New Task</a>
+                <a class="nav-link" href="create_task.php">Aufgabe erstellen</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="todolist.php">Show Tasks</a>
+                <a class="nav-link" href="todolist.php">Aufgaben anzeigen</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="calendar.php">Kalender</a>
@@ -65,29 +73,29 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
         </ul>
     </div>
 </nav>
-    <div class="container">
-        <h1>Neue Aufgabe erstellen</h1>
-        <form action="save_task.php" method="post">
-            <div class="form-group">
-                <label for="task_type">Aufgabentyp:</label>
-                <select id="task_type" name="task_type" class="form-control" required>
-                    <option value="business">Geschäftlich</option>
-                    <option value="private">Privat</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label for="task_name">Aufgabenname:</label>
-                <input type="text" id="task_name" name="task_name" class="form-control" required>
-            </div>
-            <div class="form-group">
-                <label for="task_date">Datum:</label>
-                <input type="date" id="task_date" name="task_date" class="form-control" required>
-            </div>
-            <input type="submit" class="btn btn-primary" value="Aufgabe erstellen">
-        </form>
-    </div>
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<div class="container">
+    <h1 class="custom-heading">Neue Aufgabe erstellen</h1>
+    <form action="save_task.php" method="post">
+        <div class="form-group">
+            <label for="task_type">Aufgabentyp:</label>
+            <select id="task_type" name="task_type" class="form-control" required>
+                <option value="business">Geschäftlich</option>
+                <option value="private">Privat</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="task_name">Aufgabenname:</label>
+            <input type="text" id="task_name" name="task_name" class="form-control" required>
+        </div>
+        <div class="form-group">
+            <label for="task_date">Datum:</label>
+            <input type="date" id="task_date" name="task_date" class="form-control" required>
+        </div>
+        <input type="submit" class="btn btn-primary" value="Aufgabe erstellen">
+    </form>
+</div>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
